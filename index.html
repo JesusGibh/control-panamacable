@@ -84,10 +84,10 @@
     <div class="loader-sub">Cargando Panamá Cable & Subestación...</div>
   </div>
 
-  <!-- IFRAME CON LA IMPLEMENTACIÓN ACTIVA -->
+  <!-- IFRAME CON TU URL OFICIAL DE PRODUCCIÓN -->
   <iframe 
     id="app-frame"
-    src="https://script.google.com/macros/s/AKfycbyOJqQnlQn7bW2ul4T0ryD5tRvioRtvLxsFPBxVX_suZCrhDV9gsmhNBaps46XCc3U/exec"
+    src="https://script.google.com/macros/s/AKfycbyOJqQnlQn7bW2ul4T0ryD5tRvioRtvLxsFPBxVX_suZCrhDV9gsmhNBaps46XCP_Sk/exec"
     allow="geolocation; camera; microphone; clipboard-read; clipboard-write;"
     sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-modals allow-downloads"
     onload="ocultarCargador()">
@@ -104,7 +104,8 @@
       }
     }
 
-    setTimeout(ocultarCargador, 4500);
+    // Oculta el cargador automáticamente si el evento onload tarda en dispararse
+    setTimeout(ocultarCargador, 4000);
   </script>
 </body>
 </html>
