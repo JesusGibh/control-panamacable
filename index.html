@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Panamá Cable - Control de Obra & Evidencias | Solar 5 Estrellas</title>
+  
+  <meta name="description" content="Sistema de control dinámico, bitácoras de campo y dashboard de interconexión para Panamá Cable.">
+  <meta name="theme-color" content="#090e17">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #090e17;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* PANTALLA DE CARGA ELEGANTE */
+    #loader-screen {
+      position: fixed;
+      inset: 0;
+      background: #090e17;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      color: #f8fafc;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(56, 189, 248, 0.15);
+      border-top-color: #38bdf8;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loader-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #f8fafc;
+    }
+
+    .loader-sub {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-top: 4px;
+      font-family: monospace;
+    }
+
+    /* IFRAME DE LA APLICACIÓN */
+    #app-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      background: #f8fafc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PANTALLA DE CARGA -->
+  <div id="loader-screen">
+    <div class="spinner"></div>
+    <div class="loader-title">Solar 5 Estrellas</div>
+    <div class="loader-sub">Cargando Panamá Cable & Subestación...</div>
+  </div>
+
+  <!-- IFRAME CON LA IMPLEMENTACIÓN ACTIVA -->
+  <iframe 
+    id="app-frame"
+    src="https://script.google.com/macros/s/AKfycbyOJqQnlQn7bW2ul4T0ryD5tRvioRtvLxsFPBxVX_suZCrhDV9gsmhNBaps46XCc3U/exec"
+    allow="geolocation; camera; microphone; clipboard-read; clipboard-write;"
+    sandbox="allow-forms allow-scripts allow-same-origin allow-popups allow-modals allow-downloads"
+    onload="ocultarCargador()">
+  </iframe>
+
+  <script>
+    function ocultarCargador() {
+      const loader = document.getElementById('loader-screen');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.visibility = 'hidden';
+        }, 400);
+      }
+    }
+
+    setTimeout(ocultarCargador, 4500);
+  </script>
+</body>
+</html>
